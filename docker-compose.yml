@@ -1,0 +1,16 @@
+version: '3.9'
+services:
+  main_api:
+    command: node index.js
+    image: krstphr/main_api
+    ports:
+      - 5002:5002
+    env_file:
+      - environments/main.env
+  backend:
+    command: node app.js
+    image: krstphr/ldc_backend
+    ports:
+      - 5000:5000
+    env_file: 
+      - environments/backend.env
